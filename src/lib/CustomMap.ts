@@ -28,7 +28,7 @@ export default class CustomMap {
         content: stamp.markerContent(),
       });
 
-      infoWindow.open(this.googleMap, marker);
+      infoWindow.open(this.#MAP_INS, marker);
     });
   }
 
