@@ -1,7 +1,7 @@
 import { faker } from '@faker-js/faker';
-import { ICordinates } from './utils/interfaces';
+import { ICordinates, IUser } from './utils/interfaces';
 
-export class User {
+export class User implements IUser {
   name: string;
 
   location: ICordinates;
@@ -9,8 +9,12 @@ export class User {
   constructor() {
     this.name = `${faker.name.firstName()} ${faker.name.lastName()}`;
     this.location = {
-      latitude: parseFloat(faker.address.latitude()),
-      longitude: parseFloat(faker.address.longitude()),
+      lat: parseFloat(faker.address.latitude()),
+      lng: parseFloat(faker.address.longitude()),
     };
+  }
+
+  markerContent(): string {
+    return `User Name: ${this.name}`;
   }
 }
